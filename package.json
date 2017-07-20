@@ -1,0 +1,15 @@
+{
+  "name": "supafetch",
+  "version": "0.0.1",
+  "description": "Fetch Wrapper inspired by axios",
+  "main": "src/index.js",
+  "repository": "https://github.com/jemmyphan/supafetch.git",
+  "keywords": [
+    "fetch",
+    "axios",
+    "network",
+    "http"
+  ],
+  "author": "Jemmy Phan <jemmyphan94@gmail.com>",
+  "license": "MIT"
+}
