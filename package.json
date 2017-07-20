@@ -2,14 +2,31 @@
   "name": "supafetch",
   "version": "0.0.1",
   "description": "Fetch Wrapper inspired by axios",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/jemmyphan/supafetch.git",
+  "scripts": {
+    "build:node": "node_modules/.bin/babel src --modules common --out-dir lib",
+    "build:web": "webpack --output-filename supafetch.js",
+    "build:web.min": "webpack --output-filename supafetch.min.js -p",
+    "build": "npm-run-all --parallel build:*",
+    "prepublish": "npm run build"
+  },
   "keywords": [
     "fetch",
     "axios",
     "network",
-    "http"
+    "http",
+    "xhr"
   ],
   "author": "Jemmy Phan <jemmyphan94@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "npm-run-all": "^4.0.2",
+    "path": "^0.12.7",
+    "webpack": "^3.3.0"
+  }
 }
