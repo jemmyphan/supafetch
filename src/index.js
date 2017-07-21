@@ -34,8 +34,7 @@ class Supafetch {
 
   _request(mUrl, mOptions = {}) {
     const url = this.default.baseUrl +
-      (mUrl[0] !== '/' && !!this.default.baseUrl ? `/${mUrl}` : mUrl) +
-      (mOptions.params ? `?${qs.stringify(mOptions.params)}` : '')
+      (mUrl[0] !== '/' && !!this.default.baseUrl ? `/${mUrl}` : mUrl)
 
     let options = this.default.interceptors.request({
       ...mOptions,
@@ -65,8 +64,9 @@ class Supafetch {
     }
 
     options.headers = new Headers(options.headers)
+    const urlParams = options.params ? `?${qs.stringify(options.params)}` : ''
 
-    let request = new Request(url, options)
+    let request = new Request(url + urlParams, options)
     let response
     return new Promise((resolve, reject) => {
       fetch(request)
