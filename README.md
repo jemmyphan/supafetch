@@ -113,12 +113,12 @@ supafetch.setDefaultHeaders({
 
 supafetch.setResponseInterceptor(
 	res => humps.camelizeKeys(res),
-    err => {
-	    if (err.response && err.response.status === 401 {
-          doLogout()
-        }
-        return err
-    }
+	err => {
+		if (err.response && err.response.status === 401 {
+				doLogout()
+			}
+			return err
+	}
 )
 
 supafetch.setRequestInterceptor((config) => {
