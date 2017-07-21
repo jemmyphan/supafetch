@@ -1,6 +1,6 @@
 {
   "name": "supafetch",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Fetch Wrapper inspired by axios",
   "main": "lib/index.js",
   "repository": "https://github.com/jemmyphan/supafetch.git",
@@ -15,6 +15,7 @@
     "fetch",
     "axios",
     "network",
+    "http-client",
     "http",
     "xhr"
   ],
