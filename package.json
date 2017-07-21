@@ -1,15 +1,16 @@
 {
   "name": "supafetch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fetch Wrapper inspired by axios",
   "main": "lib/index.js",
   "repository": "https://github.com/jemmyphan/supafetch.git",
   "scripts": {
-    "build:node": "node_modules/.bin/babel src --modules common --out-dir lib",
+    "build:node": "babel --out-dir lib src",
     "build:web": "webpack --output-filename supafetch.js",
     "build:web.min": "webpack --output-filename supafetch.min.js -p",
     "build": "npm-run-all --parallel build:*",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "prebuild": "rm -rf lib dist"
   },
   "keywords": [
     "fetch",
