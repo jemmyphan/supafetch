@@ -72,11 +72,15 @@ class Supafetch {
       fetch(request)
         .then((resp) => {
           response = resp
+          let tempHeaders = {}
+          for (let pair of response.headers.entries()) {
+            tempHeaders[pair[0]] = pair[1]
+          }
+          response.headers = tempHeaders
           return response.text()
         })
         .then((value) => {
-          const contentType = response.headers.get('content-type')
-          const isJson = contentType && contentType.indexOf('application/json') !== -1
+          const isJson = response.headers['content-type'] && response.headers['content-type'].includes('application/json')
           if (!response.ok) {
             let error = new Error(response.statusText || `Request failed with status code ${response.status}`)
             error.data = value
