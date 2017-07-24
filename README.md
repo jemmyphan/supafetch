@@ -1,4 +1,4 @@
-# Supafetch
+# [Supafetch](https://jemmyphan.github.io/supafetch/)
 Simple fetch wrapper inspired by axios
 
 
