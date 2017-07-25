@@ -27,7 +27,10 @@ class Supafetch {
     this.default.interceptors.request = requestInterceptor
   }
 
-  setResponseInterceptor(responseSuccessInterceptor = this.default.interceptors.responseSuccess, responseFailInterceptor = this.default.interceptors.responseFailInterceptor) {
+  setResponseInterceptor(
+    responseSuccessInterceptor = this.default.interceptors.responseSuccess,
+    responseFailInterceptor = this.default.interceptors.responseFailInterceptor
+  ) {
     this.default.interceptors.responseSuccess = responseSuccessInterceptor
     this.default.interceptors.responseFail = responseFailInterceptor
   }
@@ -73,9 +76,9 @@ class Supafetch {
         .then((resp) => {
           response = resp
           let tempHeaders = {}
-          for (let pair of response.headers.entries()) {
-            tempHeaders[pair[0]] = pair[1]
-          }
+          response.headers.forEach((val, key) => {
+            tempHeaders[key] = val
+          })
           response.headers = tempHeaders
           return response.text()
         })
