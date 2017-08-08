@@ -36,8 +36,9 @@ class Supafetch {
   }
 
   _request(mUrl, mOptions = {}) {
-    const url = this.default.baseUrl +
-      (mUrl[0] !== '/' && !!this.default.baseUrl ? `/${mUrl}` : mUrl)
+    const baseUrl = !!mUrl.substring(0, 4).match('http|www.') ? '' : this.default.baseUrl
+    const url = baseUrl +
+      (mUrl[0] !== '/' && !!baseUrl ? `/${mUrl}` : mUrl)
 
     let options = this.default.interceptors.request({
       ...mOptions,
