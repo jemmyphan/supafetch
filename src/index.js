@@ -76,11 +76,6 @@ class Supafetch {
       fetch(request)
         .then((resp) => {
           response = resp
-          let tempHeaders = {}
-          response.headers.forEach((val, key) => {
-            tempHeaders[key] = val
-          })
-          response.headers = tempHeaders
           return response.text()
         })
         .then((value) => {
